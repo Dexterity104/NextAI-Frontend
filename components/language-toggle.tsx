@@ -6,12 +6,6 @@ import Image from "next/image"
 export default function LanguageToggle() {
   const { language, switchLanguage } = useLanguage()
 
-  function getFlagEmoji(countryCode: string) {
-    return countryCode
-      .toUpperCase()
-      .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt(0)))
-  }
-
   return (
     <button
       onClick={() => switchLanguage(language === "en" ? "es" : "en")}

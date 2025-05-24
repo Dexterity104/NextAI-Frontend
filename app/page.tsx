@@ -259,9 +259,9 @@ export default function Home() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <StatCard number="80+" text={t("stat1")} imageSrc="/images/stat1.jpeg" />
-                <StatCard number="44+" text={t("stat2")} imageSrc="/images/icon1.png" />
-                <StatCard number="200+" text={t("stat3")} imageSrc="/images/icon1.png" />
-                <StatCard number="10+" text={t("stat4")} imageSrc="/images/icon1.png" />
+                <StatCard number="44+" text={t("stat2")} imageSrc="/images/stat2.jpeg" />
+                <StatCard number="200+" text={t("stat3")} imageSrc="/images/stat3.jpeg" />
+                <StatCard number="10+" text={t("stat4")} imageSrc="/images/stat4.jpeg" />
               </div>
             </div>
           </div>

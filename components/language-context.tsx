@@ -3,11 +3,15 @@ import { createContext, useContext, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import i18n from "@/lib/i18n-client"
 
-const LanguageContext = createContext<any>(null)
+interface LanguageContextType {
+  language: string
+  switchLanguage: (lang: string) => void
+}
+const LanguageContext = createContext<LanguageContextType | null>(null)
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState("en")
-  const router = useRouter()
+  // const router = useRouter()
 
   useEffect(() => {
     const savedLang = localStorage.getItem("lang") || "en"

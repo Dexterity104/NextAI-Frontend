@@ -23,7 +23,7 @@ export default function CountUp({ value }) {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          const start = 0
+          // const start = 0
           const end = numericValue
           const duration = 2000
           const startTime = performance.now()
