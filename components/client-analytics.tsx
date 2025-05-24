@@ -13,11 +13,16 @@ export default function ClientAnalytics() {
       const trackButtonClicks = () => {
         document.querySelectorAll("[data-goal]").forEach((button) => {
           button.addEventListener("click", (e) => {
-            const goalName = e.currentTarget.getAttribute("data-goal")
-            console.log(`Goal tracked: ${goalName}`)
-            // Here you would call your analytics tracking function
-            // Example: clarity('set', goalName, 1);
+            const target = e.currentTarget as HTMLElement | null
+            if (target) {
+              const goalName = target.getAttribute("data-goal")
+              if (goalName) {
+                console.log(`Goal tracked: ${goalName}`)
+                // Example: clarity('set', goalName, 1);
+              }
+            }
           })
+
         })
       }
 

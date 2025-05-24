@@ -1,10 +1,13 @@
-"use client"
-
 import { useLanguage } from "./language-context"
 import Image from "next/image"
 
 export default function LanguageToggle() {
-  const { language, switchLanguage } = useLanguage()
+  const context = useLanguage()
+  if (!context) {
+    throw new Error("LanguageToggle must be used within a LanguageProvider")
+  }
+
+  const { language, switchLanguage } = context
 
   return (
     <button
@@ -19,6 +22,5 @@ export default function LanguageToggle() {
       />
       {language === "en" ? "ES" : "EN"}
     </button>
-
   )
 }

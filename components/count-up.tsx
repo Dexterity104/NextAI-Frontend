@@ -2,7 +2,11 @@
 
 import { useState, useEffect, useRef } from "react"
 
-export default function CountUp({ value }) {
+interface CountUpProps {
+  value: string
+}
+
+export default function CountUp({ value }: CountUpProps) {
   const [displayValue, setDisplayValue] = useState("0")
   const counterRef = useRef(null)
   const valueRef = useRef(value)
@@ -23,12 +27,11 @@ export default function CountUp({ value }) {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          // const start = 0
           const end = numericValue
           const duration = 2000
           const startTime = performance.now()
 
-          const updateCounter = (currentTime) => {
+          const updateCounter = (currentTime: number) => {
             const elapsedTime = currentTime - startTime
             const progress = Math.min(elapsedTime / duration, 1)
             const easeOutQuad = 1 - (1 - progress) * (1 - progress)
@@ -53,9 +56,7 @@ export default function CountUp({ value }) {
     }
 
     return () => {
-      if (observer) {
-        observer.disconnect()
-      }
+      observer.disconnect()
     }
   }, [value])
 
