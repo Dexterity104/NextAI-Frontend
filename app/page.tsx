@@ -29,6 +29,7 @@ import LanguageToggle from "@/components/language-toggle"
 import { useTranslation } from "react-i18next"
 import HeroCarousel from "@/components/hero-carousel"
 import StatCard from "@/components/stat-card"
+import { ReactNode } from "react"
 
 
 export default function Home() {
@@ -402,7 +403,13 @@ export default function Home() {
   )
 }
 
-function ServiceCard({ icon, title, description }) {
+type ServiceCardProps = {
+  icon: ReactNode
+  title: string
+  description: string
+}
+
+function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
       <CardContent className="p-6">
@@ -414,7 +421,13 @@ function ServiceCard({ icon, title, description }) {
   )
 }
 
-function ResultCard({ icon, stat, description }) {
+type ResultCardProps = {
+  icon: ReactNode
+  stat: string
+  description: string
+}
+
+function ResultCard({ icon, stat, description }: ResultCardProps) {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg text-center">
       <CardContent className="p-6">
